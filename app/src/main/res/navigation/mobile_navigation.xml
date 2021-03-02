@@ -13,13 +13,23 @@
 
     <fragment
         android:id="@+id/nav_explore"
-        android:name="com.example.malclient.ui.gallery.GalleryFragment"
+        android:name="com.example.malclient.ui.gallery.ExploreFragment"
         android:label="@string/menu_explore"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_list"
-        android:name="com.example.malclient.ui.slideshow.SlideshowFragment"
+        android:name="com.example.malclient.ui.slideshow.ListFragment"
         android:label="@string/menu_list"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.malclient.verification.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.malclient.verification.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

@@ -22,8 +22,8 @@ public class ExploreFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         exploreViewModel =
                 new ViewModelProvider(this).get(ExploreViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
+        View root = inflater.inflate(R.layout.fragment_explore, container, false);
+        final TextView textView = root.findViewById(R.id.text_explore);
         exploreViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

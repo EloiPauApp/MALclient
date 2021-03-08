@@ -17,9 +17,25 @@
             android:icon="@drawable/ic_baseline_list_24"
             android:title="@string/menu_list" />
 
-<!--        <item-->
-<!--            android:id="@+id/nav_login"-->
-<!--            android:icon="@drawable/ic_baseline_settings_24"-->
-<!--            android:title="@string/settings"/>-->
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="@string/settings"/>
     </group>
+
+    <item android:title="Comunity">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="share" />
+
+                <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="send" />
+            </group>
+        </menu>
+    </item>
 </menu>

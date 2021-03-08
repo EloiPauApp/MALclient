@@ -1,4 +1,4 @@
-package com.example.malclient.ui.slideshow;
+package com.example.malclient.ui.explore;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.malclient.R;
 
-public class ListFragment extends Fragment {
+public class ExploreFragment extends Fragment {
 
-    private ListViewModel listViewModel;
+    private ExploreViewModel exploreViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        listViewModel =
-                new ViewModelProvider(this).get(ListViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_list, container, false);
-        final TextView textView = root.findViewById(R.id.text_list);
-        listViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        exploreViewModel =
+                new ViewModelProvider(this).get(ExploreViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_explore, container, false);
+        final TextView textView = root.findViewById(R.id.text_explore);
+        exploreViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

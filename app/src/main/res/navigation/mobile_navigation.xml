@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_explore"
-        android:name="com.example.malclient.ui.gallery.ExploreFragment"
+        android:name="com.example.malclient.ui.explore.ExploreFragment"
         android:label="@string/menu_explore"
         tools:layout="@layout/fragment_explore" />
 
     <fragment
         android:id="@+id/nav_list"
-        android:name="com.example.malclient.ui.slideshow.ListFragment"
+        android:name="com.example.malclient.ui.list.ListFragment"
         android:label="@string/menu_list"
         tools:layout="@layout/fragment_list" />
     <fragment

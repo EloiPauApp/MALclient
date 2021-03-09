@@ -18,13 +18,11 @@ public class LaunchActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_launch);
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        Runnable runnable = () -> {
+            Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
+            intent.putExtra("Start",true);
+            startActivity(intent);
+            finish();
         };
         new Handler().postDelayed(runnable,5000);
     }

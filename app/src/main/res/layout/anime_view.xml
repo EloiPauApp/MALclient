@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:layout_margin="2dp">
+
+    <ImageView
+        android:id="@+id/imatge"
+        android:layout_width="154dp"
+        android:layout_height="154dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:gravity="center_horizontal"
+        android:src="@drawable/onepiece" />
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_marginLeft="2dp"
+        android:layout_marginEnd="@id/imatge"
+        android:layout_marginRight="@id/imatge"
+        android:hint="titol"
+        android:textColorHint="@color/white"
+        android:textColor="@color/purple_200"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginStart="2dp" />
+
+    <TextView
+        android:id="@+id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_below="@id/nom"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/nom"
+        android:hint="genere"
+        android:textColorHint="@color/white"
+        android:textColor="@color/purple_200"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+</GridLayout>

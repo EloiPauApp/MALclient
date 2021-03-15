@@ -3,23 +3,40 @@ package com.example.malclient.models;
 import java.util.List;
 
 public class Data {
-    private List<Anime> node;
+    private String requested_hash;
+    private boolean requested_cached;
+    private int requested_cache_expiry;
+    private List<Anime> results;
 
-    private Paging paging;
-
-    public List<Anime> getNode() {
-        return node;
+    public String getRequested_hash() {
+        return requested_hash;
     }
 
-    public void setNode(List<Anime> node) {
-        this.node = node;
+    public void setRequested_hash(String requested_hash) {
+        this.requested_hash = requested_hash;
     }
 
-    public Paging getPaging() {
-        return paging;
+    public boolean isRequested_cached() {
+        return requested_cached;
     }
 
-    public void setPaging(Paging paging) {
-        this.paging = paging;
+    public void setRequested_cached(boolean requested_cached) {
+        this.requested_cached = requested_cached;
+    }
+
+    public int getRequested_cache_expiry() {
+        return requested_cache_expiry;
+    }
+
+    public void setRequested_cache_expiry(int requested_cache_expiry) {
+        this.requested_cache_expiry = requested_cache_expiry;
+    }
+
+    public List<Anime> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Anime> results) {
+        this.results = results;
     }
 }

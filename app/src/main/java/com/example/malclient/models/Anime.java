@@ -3,23 +3,42 @@ package com.example.malclient.models;
 import java.util.List;
 
 public class Anime {
-    private int id;
+    private int mal_id;
+    private String url;
+    private String image_url;
     private String title;
-    private MainPicture main_picture;
+    private boolean airing;
+    private String synopsis;
+    private String type;
+    private int episodes;
+    private double score;
     private String start_date;
     private String end_date;
-    private String synopsis;
-    private List<Genre> genres;
-    private String status;
-    private int num_episodes;
-    private Season start_season;
+    private String rated;
 
-    public int getId() {
-        return id;
+
+    public int getMal_id() {
+        return mal_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMal_id(int mal_id) {
+        this.mal_id = mal_id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public String getTitle() {
@@ -30,12 +49,44 @@ public class Anime {
         this.title = title;
     }
 
-    public MainPicture getMain_picture() {
-        return main_picture;
+    public boolean isAiring() {
+        return airing;
     }
 
-    public void setMain_picture(MainPicture main_picture) {
-        this.main_picture = main_picture;
+    public void setAiring(boolean airing) {
+        this.airing = airing;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getEpisodes() {
+        return episodes;
+    }
+
+    public void setEpisodes(int episodes) {
+        this.episodes = episodes;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 
     public String getStart_date() {
@@ -54,43 +105,29 @@ public class Anime {
         this.end_date = end_date;
     }
 
-    public String getSynopsis() {
-        return synopsis;
+    public String getRated() {
+        return rated;
     }
 
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
+    public void setRated(String rated) {
+        this.rated = rated;
     }
 
-    public List<Genre> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getNum_episodes() {
-        return num_episodes;
-    }
-
-    public void setNum_episodes(int num_episodes) {
-        this.num_episodes = num_episodes;
-    }
-
-    public Season getStart_season() {
-        return start_season;
-    }
-
-    public void setStart_season(Season start_season) {
-        this.start_season = start_season;
+    @Override
+    public String toString() {
+        return "Anime{" +
+                "mal_id=" + mal_id +
+                ", url='" + url + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", title='" + title + '\'' +
+                ", airing=" + airing +
+                ", synopsis='" + synopsis + '\'' +
+                ", type='" + type + '\'' +
+                ", episodes=" + episodes +
+                ", score=" + score +
+                ", start_date='" + start_date + '\'' +
+                ", end_date='" + end_date + '\'' +
+                ", rated='" + rated + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.example.malclient.adapter;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.malclient.R;
-import com.example.malclient.grid_model.Anime;
+import com.example.malclient.models.Anime;
 
 import java.util.List;
 
@@ -35,9 +36,9 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
 
     @Override
     public void onBindViewHolder(@NonNull AnimeHolder holder, int position) {
-        holder.imatge.setImageDrawable(animes.get(position).getImatge());
-        holder.nom.setText(animes.get(position).getName());
-        holder.tag.setText(animes.get(position).getTag());
+        holder.imatge.setImageDrawable(Drawable.createFromPath(animes.get(position).getImage_url()));
+        holder.nom.setText(animes.get(position).getTitle());
+        holder.tag.setText(animes.get(position).getType());
 
     }
 

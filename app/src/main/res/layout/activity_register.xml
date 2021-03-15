@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registre"
-            android:textColor="@color/white"
             android:textSize="50sp"
             android:textStyle="bold"
             android:layout_gravity="center"

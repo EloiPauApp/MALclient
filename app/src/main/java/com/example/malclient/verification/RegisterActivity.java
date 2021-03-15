@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         cognom = findViewById(R.id.surname);
         aniversari = findViewById(R.id.birth_date);
         genere = findViewById(R.id.gender_pronoum);
-        checkBox = findViewById(R.id.accelerate);
+        checkBox = findViewById(R.id.contract);
         register = findViewById(R.id.register_signin);
         login = findViewById(R.id.login_signin);
 
@@ -120,11 +120,12 @@ public class RegisterActivity extends AppCompatActivity {
                     allRight = false;
                 }
 
-//                if(checkBox.isChecked()) Toast.makeText(RegisterActivity.this,"You must accept the Terms",Toast.LENGTH_SHORT).show();
+                if(!checkBox.isChecked()) Toast.makeText(RegisterActivity.this,"You must accept the Terms",Toast.LENGTH_SHORT).show();
 
                 if(allRight && checkBox.isChecked()){
                     Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(i);
+                    finish();
                 }
             }
         });

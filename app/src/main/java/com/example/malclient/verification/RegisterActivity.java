@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.malclient.MainActivity;
 import com.example.malclient.R;
@@ -58,15 +59,14 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username.setError(null);
-                password.setError(null);
-                fpassword.setError(null);
-                correu.setError(null);
-                nom.setError(null);
-                cognom.setError(null);
-                aniversari.setError(null);
-                genere.setError(null);
-                checkBox.setError(null);
+                username.setErrorEnabled(false);
+                password.setErrorEnabled(false);
+                fpassword.setErrorEnabled(false);
+                correu.setErrorEnabled(false);
+                nom.setErrorEnabled(false);
+                cognom.setErrorEnabled(false);
+                aniversari.setErrorEnabled(false);
+                genere.setErrorEnabled(false);;
                 boolean allRight = true;
 
                 if(username.getEditText().getText().toString().equals("")){
@@ -120,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                     allRight = false;
                 }
 
-                if(!checkBox.isChecked()) checkBox.setError("Camp obligatori");
+//                if(checkBox.isChecked()) Toast.makeText(RegisterActivity.this,"You must accept the Terms",Toast.LENGTH_SHORT).show();
 
                 if(allRight && checkBox.isChecked()){
                     Intent i = new Intent(RegisterActivity.this, MainActivity.class);
@@ -133,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(i);
+                finish();
             }
         });
     }

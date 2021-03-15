@@ -17,6 +17,7 @@ import com.example.malclient.LaunchActivity;
 import com.example.malclient.MainActivity;
 import com.example.malclient.R;
 import com.example.malclient.verification.LoginActivity;
+import com.example.malclient.verification.RegisterActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 
@@ -52,7 +53,7 @@ public class HomeFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), RegisterActivity.class);
                 startActivity(intent);
 //                createSignInIntent();
             }

@@ -37,4 +37,7 @@
     <string name="aniversari">Aniversari</string>
     <string name="g_nere">Gènere</string>
     <string name="accepta">Accepta els Termes i Condicions d\'ús</string>
+    <string name="genere">genere</string>
+    <string name="titol">titol</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -7,6 +7,15 @@ public class Data {
     private boolean requested_cached;
     private int requested_cache_expiry;
     private List<Anime> results;
+    private List<Anime> top;
+
+    public List<Anime> getTop() {
+        return top;
+    }
+
+    public void setTop(List<Anime> top) {
+        this.top = top;
+    }
 
     public String getRequested_hash() {
         return requested_hash;

@@ -42,7 +42,7 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
 //        holder.imatge.setImageDrawable(Drawable.createFromPath(animes.get(position).getImage_url()));
         Picasso.with(context).load(animes.get(position).getImage_url()).into(holder.imatge);
         holder.nom.setText(animes.get(position).getTitle());
-        holder.tag.setText(animes.get(position).getType());
+        holder.tag.setText(animes.get(position).getScore()+"");
 
     }
 

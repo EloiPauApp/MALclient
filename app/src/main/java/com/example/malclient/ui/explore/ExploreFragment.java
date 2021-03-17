@@ -54,7 +54,7 @@ public class ExploreFragment extends Fragment {
         List animes = new ArrayList<Anime>();
         adapterAnime = new AdapterAnime(animes);
         rvSearch.setAdapter(adapterAnime);
-        rvSearch.setLayoutManager(new GridLayoutManager(getContext(),2));
+        rvSearch.setLayoutManager(new GridLayoutManager(getContext(),3));
         String name= null;
         lanzarPeticion(name);
         return root;

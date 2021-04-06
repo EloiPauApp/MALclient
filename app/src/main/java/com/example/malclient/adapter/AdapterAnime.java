@@ -1,5 +1,6 @@
 package com.example.malclient.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -37,6 +38,7 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
         return new AnimeHolder(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AnimeHolder holder, int position) {
 //        holder.imatge.setImageDrawable(Drawable.createFromPath(animes.get(position).getImage_url()));

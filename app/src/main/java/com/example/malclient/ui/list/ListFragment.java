@@ -16,9 +16,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.malclient.MainActivity;
 import com.example.malclient.R;
+import com.example.malclient.adapter.AdapterAnime;
+import com.example.malclient.models.Anime;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,26 +32,33 @@ public class ListFragment extends Fragment {
 
     private ListViewModel listViewModel;
     private Button addBtn;
-    private ListView animeList;
+    private RecyclerView animeList;
     EditText getValue;
     String[] ListElements = new String[] {
             "Anime",
             "Type"
     };
+    AdapterAnime adapterAnime;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
         View root = inflater.inflate(R.layout.fragment_list, container, false);
-        final TextView textView = root.findViewById(R.id.text_list);
         addBtn = root.findViewById(R.id.addBtn);
         getValue = root.findViewById(R.id.editText1);
+        animeList = root.findViewById(R.id.listAnime);
 
-        final List< String > ListElementsArrayList = new ArrayList< String >
-                (Arrays.asList(ListElements));
+        List animes = new ArrayList<Anime>();
+        adapterAnime = new AdapterAnime(animes);
+        animeList.setAdapter(adapterAnime);
+        animeList.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-        final ArrayAdapter< String > adapter = new ArrayAdapter < String >
-                (getContext(), android.R.layout.simple_list_item_1,
-                        ListElementsArrayList);
+//        final List< String > ListElementsArrayList = new ArrayList< String >
+//                (Arrays.asList(ListElements));
+//
+//
+//        final ArrayAdapter< String > adapter = new ArrayAdapter < String >
+//                (getContext(), android.R.layout.simple_list_item_1,
+//                        ListElementsArrayList);
 
 //        animeList.setAdapter(adapter);
 
@@ -55,15 +66,18 @@ public class ListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(),"No implement yet",Toast.LENGTH_LONG).show();
-                ListElementsArrayList.add(getValue.getText().toString());
-                adapter.notifyDataSetChanged();
+                Anime anime = new Anime();
+                anime.setTitle("One Piece");
+                anime.setScore(6);
+                animes.add(anime);
+                adapterAnime.setAnimes(animes);
             }
         });
 
         listViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+
             }
         });
         return root;

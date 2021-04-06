@@ -38,5 +38,6 @@ public class ListView extends ListActivity {
     }
 
     public void setAdapter(ArrayAdapter<String> adapter) {
+        this.adapter = adapter;
     }
 }

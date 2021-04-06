@@ -1,12 +1,16 @@
 package com.example.malclient.ui.explore;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.method.KeyListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,6 +61,17 @@ public class ExploreFragment extends Fragment {
         rvSearch.setLayoutManager(new GridLayoutManager(getContext(),3));
         String name= null;
         lanzarPeticion(name);
+
+        seacrhEditText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode==66 && !seacrhEditText.getText().toString().isEmpty()){
+
+                    lanzarPeticion(seacrhEditText.getText().toString());
+                }else lanzarPeticion(name);
+                return false;
+            }
+        });
         return root;
     }
 

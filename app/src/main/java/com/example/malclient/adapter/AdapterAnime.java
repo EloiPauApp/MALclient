@@ -2,6 +2,7 @@ package com.example.malclient.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.malclient.MainActivity;
 import com.example.malclient.R;
 import com.example.malclient.models.Anime;
+import com.example.malclient.ui.list.ActivityList;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.List;
 public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder> {
     private List<Anime> animes;
     private Context context;
+
     public AdapterAnime(List<Anime> animes) {
         this.animes = animes;
     }
@@ -45,7 +49,14 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
         Picasso.with(context).load(animes.get(position).getImage_url()).into(holder.imatge);
         holder.nom.setText(animes.get(position).getTitle());
         holder.tag.setText(animes.get(position).getScore()+"");
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ActivityList.class);
+                intent.putExtra("anime",animes.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -64,6 +75,7 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
             imatge = itemView.findViewById(R.id.imatge);
             nom = itemView.findViewById(R.id.nom);
             tag = itemView.findViewById(R.id.tag);
+
         }
     }
 }

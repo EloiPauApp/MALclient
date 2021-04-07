@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 
 import com.example.malclient.R;
+import com.example.malclient.models.Anime;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,25 +31,11 @@ public class ActivityList extends Activity {
         setContentView(R.layout.list_view);
         Addbutton = (Button) findViewById(R.id.button1);
         GetValue = (EditText) findViewById(R.id.editText1);
-
-        final List< String > ListElementsArrayList = new ArrayList< String >
-                (Arrays.asList(ListElements));
-
-
-        final ArrayAdapter< String > adapter = new ArrayAdapter < String >
-                (ActivityList.this, android.R.layout.simple_list_item_1,
-                        ListElementsArrayList);
-
-        listview.setAdapter(adapter);
-
-        Addbutton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                ListElementsArrayList.add(GetValue.getText().toString());
-                adapter.notifyDataSetChanged();
-            }
-        });
+       Bundle bundle= getIntent().getExtras();
+        if (bundle != null){
+            Anime anime = bundle.getParcelable("anime");
+            Addbutton.setText(anime.getTitle());
+        }
+        //TODO Cambiar este activity y su layout para que se vea mejor
     }
 }

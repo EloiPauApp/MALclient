@@ -1,8 +1,14 @@
 package com.example.malclient.models;
 
+import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.List;
 
-public class Anime {
+public class Anime implements Parcelable {
     private int mal_id;
     private String url;
     private String image_url;
@@ -16,6 +22,35 @@ public class Anime {
     private String end_date;
     private String rated;
 
+    public Anime() {
+    }
+
+    protected Anime(Parcel in) {
+        mal_id = in.readInt();
+        url = in.readString();
+        image_url = in.readString();
+        title = in.readString();
+        airing = in.readByte() != 0;
+        synopsis = in.readString();
+        type = in.readString();
+        episodes = in.readInt();
+        score = in.readDouble();
+        start_date = in.readString();
+        end_date = in.readString();
+        rated = in.readString();
+    }
+
+    public static final Creator<Anime> CREATOR = new Creator<Anime>() {
+        @Override
+        public Anime createFromParcel(Parcel in) {
+            return new Anime(in);
+        }
+
+        @Override
+        public Anime[] newArray(int size) {
+            return new Anime[size];
+        }
+    };
 
     public int getMal_id() {
         return mal_id;
@@ -129,5 +164,28 @@ public class Anime {
                 ", end_date='" + end_date + '\'' +
                 ", rated='" + rated + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.Q)
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mal_id);
+        dest.writeString(url);
+        dest.writeString(image_url);
+        dest.writeString(title);
+        dest.writeBoolean(airing);
+        dest.writeString(synopsis);
+        dest.writeString(type);
+        dest.writeInt(episodes);
+        dest.writeDouble(score);
+        dest.writeString(start_date);
+        dest.writeString(end_date);
+        dest.writeString(rated);
+
     }
 }

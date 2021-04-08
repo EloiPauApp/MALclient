@@ -65,8 +65,7 @@ public class ExploreFragment extends Fragment {
         seacrhEditText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode==66 && !seacrhEditText.getText().toString().isEmpty()){
-
+                if (keyCode==66 && seacrhEditText.getText().toString().length()>=3){
                     lanzarPeticion(seacrhEditText.getText().toString());
                 }else lanzarPeticion(name);
                 return false;

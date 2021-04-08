@@ -3,7 +3,6 @@ package com.example.malclient.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.malclient.MainActivity;
 import com.example.malclient.R;
 import com.example.malclient.models.Anime;
-import com.example.malclient.ui.list.ActivityList;
+import com.example.malclient.ui.list.AnimeDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -52,7 +50,7 @@ public class AdapterAnime extends RecyclerView.Adapter<AdapterAnime.AnimeHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ActivityList.class);
+                Intent intent = new Intent(context, AnimeDetailActivity.class);
                 intent.putExtra("anime",animes.get(position));
                 context.startActivity(intent);
             }

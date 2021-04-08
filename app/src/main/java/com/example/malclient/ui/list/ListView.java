@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-import androidx.constraintlayout.widget.ConstraintSet;
-
 import com.example.malclient.R;
 
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class ListView extends ListActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.list_view);
+        setContentView(R.layout.activity_anime_details);
         adapter=new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 listItems);

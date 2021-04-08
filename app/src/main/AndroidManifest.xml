@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MALclient">
         <activity android:name=".verification.LoginActivity" />
         <activity android:name=".verification.RegisterActivity"/>
-        <activity android:name=".ui.list.ActivityList"/>
+        <activity android:name=".ui.list.AnimeDetailActivity"/>
 
         <activity android:name=".LaunchActivity" />
         <activity

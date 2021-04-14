@@ -36,24 +36,20 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_explore, R.id.nav_list)
+                R.id.nav_home, R.id.nav_explore, R.id.nav_list,R.id.nav_settings)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
+
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         //Conecto el BottomNavigationView y lo añado al UI de navegacion para poder pasar de fragment a fragment
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

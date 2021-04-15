@@ -18,7 +18,7 @@ import com.example.malclient.MainActivity;
 import com.example.malclient.R;
 import com.example.malclient.verification.LoginActivity;
 import com.example.malclient.verification.RegisterActivity;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import java.util.Arrays;
@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
     private Button button;
     private static final int RC_SIGN_IN = 123;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -44,119 +45,25 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
-//        TODO
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
+
         button = root.findViewById(R.id.boton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RegisterActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), RegisterActivity.class);
+//                startActivity(intent);
+                FirebaseAuth.getInstance().useEmulator("10.0.2.2",9099);
 //                createSignInIntent();
             }
         });
         return root;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-//            IdpResponse response = IdpResponse.fromResultIntent(data);
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == RC_SIGN_IN) {
 //
-//            if (resultCode == RESULT_OK) {
-//                // Successfully signed in
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                // ...
-//            } else {
-//                // Sign in failed. If response is null the user canceled the
-//                // sign-in flow using the back button. Otherwise check
-//                // response.getError().getErrorCode() and handle the error.
-//                // ...
-//            }
-        }
-    }
-    // [END auth_fui_result]
-
-
-//    public void createSignInIntent() {
-//        // [START auth_fui_create_intent]
-//        // Choose authentication providers
-//        List<AuthUI.IdpConfig> providers;
-//        providers = Arrays.asList(
-//                new AuthUI.IdpConfig.EmailBuilder().build(),
-////                new AuthUI.IdpConfig.PhoneBuilder().build(),
-//                new AuthUI.IdpConfig.GoogleBuilder().build());
-////                new AuthUI.IdpConfig.FacebookBuilder().build(),
-////                new AuthUI.IdpConfig.TwitterBuilder().build());
-//
-//        // Create and launch sign-in intent
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                        .createSignInIntentBuilder()
-//                        .setAvailableProviders(providers)
-//                        .build(),
-//                RC_SIGN_IN);
-//        // [END auth_fui_create_intent]
+//        }
 //    }
-
-
-//    public void signOut() {
-//        // [START auth_fui_signout]
-//        AuthUI.getInstance()
-//                .signOut(getContext())
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        // ...
-//                    }
-//                });
-//        // [END auth_fui_signout]
-//    }
-//
-//    public void delete() {
-//        // [START auth_fui_delete]
-//        AuthUI.getInstance()
-//                .delete(getContext())
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        // ...
-//                    }
-//                });
-//        // [END auth_fui_delete]
-//    }
-//
-//    public void themeAndLogo() {
-//        List<AuthUI.IdpConfig> providers = Collections.emptyList();
-//
-//        // [START auth_fui_theme_logo]
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                        .createSignInIntentBuilder()
-//                        .setAvailableProviders(providers)
-//                        .setLogo(R.drawable.ic_launcher_background)      // Set logo drawable
-//                        .setTheme(R.style.Theme_AppCompat_DayNight)      // Set theme
-//                        .build(),
-//                RC_SIGN_IN);
-//        // [END auth_fui_theme_logo]
-//    }
-//
-//    public void privacyAndTerms() {
-//        List<AuthUI.IdpConfig> providers = Collections.emptyList();
-//        // [START auth_fui_pp_tos]
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                        .createSignInIntentBuilder()
-//                        .setAvailableProviders(providers)
-//                        .setTosAndPrivacyPolicyUrls(
-//                                "https://example.com/terms.html",
-//                                "https://example.com/privacy.html")
-//                        .build(),
-//                RC_SIGN_IN);
-//        // [END auth_fui_pp_tos]
-//    }
-
 }

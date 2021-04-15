@@ -6,8 +6,6 @@ import android.os.Parcelable;
 
 import androidx.annotation.RequiresApi;
 
-import java.util.List;
-
 public class Anime implements Parcelable {
     private int mal_id;
     private String url;

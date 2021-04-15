@@ -9,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,7 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.Theme_MALclient_NoActionBar); //Cambia el estilo del launch activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        database=FirebaseDatabase.getInstance();
+        myRef=database.getReference("Usuari");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

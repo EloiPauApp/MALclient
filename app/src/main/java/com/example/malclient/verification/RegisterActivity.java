@@ -1,5 +1,6 @@
 package com.example.malclient.verification;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,17 +15,20 @@ import com.example.malclient.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
     TextInputLayout username, password, fpassword, correu, nom, cognom, aniversari, genere;
     CheckBox checkBox;
     Button register, login;
-
-
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -46,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         checkBox = findViewById(R.id.contract);
         register = findViewById(R.id.register_signin);
         login = findViewById(R.id.login_signin);
+        autetification();
 
         MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         final  MaterialDatePicker<Long> picker = builder.build();
@@ -129,6 +134,35 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         });
+    }
+
+    private void autetification() {
+        firebaseAuth = FirebaseAuth.getInstance();
+
+    }
+
+    public void createUser(View view){
+        try {
+            if (!correu.getEditText().getText().toString().isEmpty() && !password.getEditText().getText().toString().isEmpty()){
+                firebaseAuth.createUserWithEmailAndPassword(correu.getEditText().getText().toString(),password.getEditText().getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        Toast.makeText(RegisterActivity.this,"User created",Toast.LENGTH_SHORT).show();
+                        if (firebaseAuth.getCurrentUser() != null){
+                            //TODO Continuar con la autentificación
+//                            firebaseAuth.signOut();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }else Toast.makeText(this,"Please fill the fields",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 
 }

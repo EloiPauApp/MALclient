@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     private AppBarConfiguration mAppBarConfiguration;
+    TextView emailNav, profileNav;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +38,23 @@ public class MainActivity extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         myRef=database.getReference("Usuari");
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        emailNav = header.findViewById(R.id.email_nav_textView);
+        profileNav = header.findViewById(R.id.profile_nav_textView);
+        if (firebaseAuth.getCurrentUser() !=null){
+            String currentUser = firebaseAuth.getCurrentUser().getEmail();
+            emailNav.setText("Welcome "+currentUser);
+            profileNav.setText(currentUser.split("@")[0]);
+
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

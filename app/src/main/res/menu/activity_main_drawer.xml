@@ -23,18 +23,18 @@
             android:title="@string/settings"/>
     </group>
 
-    <item android:title="Comunity">
+    <item android:title="User">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
-                    android:title="share" />
+                    android:id="@+id/nav_logOut"
+                    android:icon="@drawable/ic_baseline_login_24"
+                    android:title="Log Out" />
 
-                <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="send" />
+<!--                <item-->
+<!--                    android:id="@+id/nav_send"-->
+<!--                    android:icon="@drawable/ic_menu_send"-->
+<!--                    android:title="send" />-->
             </group>
         </menu>
     </item>

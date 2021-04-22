@@ -29,33 +29,34 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+
     private Button button;
     private static final int RC_SIGN_IN = 123;
+    FirebaseAuth firebaseAuth;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        TextView textView = root.findViewById(R.id.text_home);
+        firebaseAuth = FirebaseAuth.getInstance();
         button = root.findViewById(R.id.boton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), RegisterActivity.class);
-//                startActivity(intent);
-                FirebaseAuth.getInstance().useEmulator("10.0.2.2",9099);
-//                createSignInIntent();
+                Intent intent = new Intent(getActivity(), RegisterActivity.class);
+                startActivity(intent);
+
             }
         });
+
+        if (firebaseAuth.getCurrentUser() !=null){
+            String currentUser = firebaseAuth.getCurrentUser().getEmail();
+            textView.setText("Welcome "+currentUser);
+            button.setVisibility(View.INVISIBLE);
+        }else button.setVisibility(View.VISIBLE);
+
         return root;
     }
 

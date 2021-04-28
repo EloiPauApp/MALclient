@@ -154,8 +154,10 @@ public class RegisterActivity extends AppCompatActivity {
                         password.getEditText().setText("");
                         if (firebaseAuth.getCurrentUser() != null){
                             //TODO Continuar con la autentificación
-                            firebaseAuth.signOut();
-                            Toast.makeText(RegisterActivity.this,"User deleted",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                            startActivity(i);
+                            finish();
+                          finish();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {

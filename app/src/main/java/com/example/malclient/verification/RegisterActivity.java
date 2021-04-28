@@ -20,8 +20,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthCredential;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -32,10 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -52,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.register_signin);
         login = findViewById(R.id.login_signin);
         autetification();
+
 
         MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         final  MaterialDatePicker<Long> picker = builder.build();
@@ -152,6 +152,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this,"User created",Toast.LENGTH_SHORT).show();
                         correu.getEditText().setText("");
                         password.getEditText().setText("");
+                        firebaseAuth.getCurrentUser().sendEmailVerification();
                         if (firebaseAuth.getCurrentUser() != null){
                             //TODO Continuar con la autentificación
                             Intent i = new Intent(RegisterActivity.this, MainActivity.class);

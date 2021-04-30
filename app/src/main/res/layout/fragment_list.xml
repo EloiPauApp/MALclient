@@ -8,34 +8,20 @@
     tools:context=".ui.list.ListFragment"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="26dp"
-        android:ems="10"
-        android:hint="Add elements listView" />
-    <Button
-        android:id="@+id/addBtn"
-        android:text="Add New Anime"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="addItems"
-        tools:ignore="OnClick" />
-
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listAnime"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:drawSelectorOnTop="false"
         tools:ignore="MissingConstraints" />
 
-
-
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addItems"
+        android:text="Add New Anime"
+        tools:ignore="OnClick" />
 
 
 </LinearLayout>

@@ -33,6 +33,8 @@ public class ListFragment extends Fragment {
     private ListViewModel listViewModel;
     private Button addBtn;
     private RecyclerView animeList;
+    EditText title;
+
     EditText getValue;
     String[] ListElements = new String[] {
             "Anime",
@@ -43,8 +45,9 @@ public class ListFragment extends Fragment {
         listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
         View root = inflater.inflate(R.layout.fragment_list, container, false);
         addBtn = root.findViewById(R.id.addBtn);
-        getValue = root.findViewById(R.id.editText1);
+        getValue = root.findViewById(R.id.titol);
         animeList = root.findViewById(R.id.listAnime);
+        title=root.findViewById(R.id.afegir_titol);
 
         List animes = new ArrayList<Anime>();
         adapterAnime = new AdapterAnime(animes);
@@ -62,23 +65,15 @@ public class ListFragment extends Fragment {
 
 //        animeList.setAdapter(adapter);
 
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"No implement yet",Toast.LENGTH_LONG).show();
-                Anime anime = new Anime();
-                anime.setTitle("One Piece");
-                anime.setScore(6);
-                animes.add(anime);
-                adapterAnime.setAnimes(animes);
-            }
+        addBtn.setOnClickListener(v -> {
+            Anime anime = new Anime();
+            anime.setTitle("One Piece");
+            anime.setScore(10);
+            animes.add(anime);
+            adapterAnime.setAnimes(animes);
         });
 
-        listViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-            }
+        listViewModel.getText().observe(getViewLifecycleOwner(), s -> {
         });
         return root;
     }

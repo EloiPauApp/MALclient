@@ -43,4 +43,7 @@
     <string name="search_anime_name">Search (min 3 characters)</string>
     <string name="add_new_anime">Add New Anime</string>
     <string name="extra">Here we will put a lot of text to show that there are many things but we really do not have Settings</string>
+    <string name="estat">State</string>
+    <string name="nota">Score</string>
+    <string name="afegir">Add</string>
 </resources>

@@ -19,6 +19,8 @@ public class Anime implements Parcelable {
     private String start_date;
     private String end_date;
     private String rated;
+    private int nota;
+    private int estat;
 
     public Anime() {
     }
@@ -49,6 +51,9 @@ public class Anime implements Parcelable {
             return new Anime[size];
         }
     };
+
+    public Anime(String toString, String toString1, String toString2, int selectedItemPosition, int i) {
+    }
 
     public int getMal_id() {
         return mal_id;
@@ -144,6 +149,22 @@ public class Anime implements Parcelable {
 
     public void setRated(String rated) {
         this.rated = rated;
+    }
+
+    public int getEstat() {
+        return estat;
+    }
+
+    public void setEstat(int estat) {
+        this.estat = estat;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
     }
 
     @Override

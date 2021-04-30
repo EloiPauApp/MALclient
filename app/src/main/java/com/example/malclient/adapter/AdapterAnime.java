@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.malclient.R;
 import com.example.malclient.models.Anime;
-import com.example.malclient.ui.list.AnimeDetailActivity;
+import com.example.malclient.ui.anime.AnimeDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

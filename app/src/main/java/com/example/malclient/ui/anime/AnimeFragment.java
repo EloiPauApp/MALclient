@@ -50,13 +50,7 @@ public class AnimeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.recycler_view_anime, container, false);
-
-        afegir_estat = v.findViewById(R.id.afegir_estat);
-        estat = v.findViewById(R.id.spinner_estat);
-        nota = v.findViewById(R.id.nota);
-        editar_nota = v.findViewById(R.id.editar_nota);
-        addButton = v.findViewById(R.id.addBtn);
+        View v = inflater.inflate(R.layout.activity_anime, container, false);
 
         nota.setVisibility(View.INVISIBLE);
         editar_nota.setVisibility(View.INVISIBLE);

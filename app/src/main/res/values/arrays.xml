@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="estats">
+    <string-array name="estats" type="String">
         <item>Seen</item>
-        <item>Not finished</item>
-        <item>Pending</item>
+        <item>On progress</item>
+        <item>Not seen</item>
     </string-array>
 </resources>

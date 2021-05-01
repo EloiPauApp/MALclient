@@ -47,7 +47,6 @@ public class ListFragment extends Fragment {
         addBtn = root.findViewById(R.id.addBtn);
         getValue = root.findViewById(R.id.titol);
         animeList = root.findViewById(R.id.listAnime);
-        title=root.findViewById(R.id.afegir_titol);
 
         List animes = new ArrayList<Anime>();
         adapterAnime = new AdapterAnime(animes);

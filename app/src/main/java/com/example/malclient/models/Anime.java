@@ -21,6 +21,7 @@ public class Anime implements Parcelable {
     private String rated;
     private int nota;
     private int estat;
+    private String titol;
 
     public Anime() {
     }
@@ -38,6 +39,7 @@ public class Anime implements Parcelable {
         start_date = in.readString();
         end_date = in.readString();
         rated = in.readString();
+        titol=in.readString();
     }
 
     public static final Creator<Anime> CREATOR = new Creator<Anime>() {
@@ -149,6 +151,14 @@ public class Anime implements Parcelable {
 
     public void setRated(String rated) {
         this.rated = rated;
+    }
+
+    public String getTitol() {
+        return titol;
+    }
+
+    public void setTitol(String titol) {
+        this.titol = titol;
     }
 
     public int getEstat() {

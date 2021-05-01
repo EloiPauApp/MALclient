@@ -8,13 +8,6 @@
     tools:context=".ui.list.ListFragment"
     android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listAnime"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="false"
-        tools:ignore="MissingConstraints" />
-
     <Button
         android:id="@+id/addBtn"
         android:layout_width="fill_parent"
@@ -22,6 +15,13 @@
         android:onClick="addItems"
         android:text="Add New Anime"
         tools:ignore="OnClick" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listAnime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawSelectorOnTop="false"
+        tools:ignore="MissingConstraints" />
 
 
 </LinearLayout>

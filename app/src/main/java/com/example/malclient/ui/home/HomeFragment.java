@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.malclient.LaunchActivity;
 import com.example.malclient.MainActivity;
 import com.example.malclient.R;
-import com.example.malclient.verification.LoginActivity;
 import com.example.malclient.verification.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 

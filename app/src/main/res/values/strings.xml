@@ -46,4 +46,7 @@
     <string name="estat">State</string>
     <string name="nota">Score</string>
     <string name="afegir">Add</string>
+    <string name="add">Add</string>
+    <string name="score">Score</string>
+    <string name="state">State</string>
 </resources>

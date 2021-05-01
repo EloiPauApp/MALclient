@@ -13,6 +13,8 @@
         <activity android:name=".verification.LoginActivity" />
         <activity android:name=".verification.RegisterActivity"/>
         <activity android:name=".ui.anime.AnimeDetailActivity"/>
+        <activity android:name=".ui.anime.AnimeActivity"/>
+
 
         <activity android:name=".LaunchActivity" />
         <activity

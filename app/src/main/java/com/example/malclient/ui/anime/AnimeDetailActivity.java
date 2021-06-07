@@ -20,11 +20,15 @@ import com.example.malclient.R;
 import com.example.malclient.adapter.AdapterAnime;
 import com.example.malclient.models.Anime;
 import com.example.malclient.ui.list.ListFragment;
+import com.example.malclient.ui.list.ListView;
+import com.example.malclient.ui.list.ListViewModel;
 import com.example.malclient.verification.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.example.malclient.ui.list.ListViewModel.animes;
 
 public class AnimeDetailActivity extends AppCompatActivity {
 
@@ -33,13 +37,8 @@ public class AnimeDetailActivity extends AppCompatActivity {
     TextView tituloTextView, capitulosTextView, statusTextView, synopsisTextView;
     Anime anime;
     FloatingActionButton addBtn;
-    private List<Anime> animes;
     private Context context;
-
-
-    public void setAnimes(List<Anime> animes) {
-        this.animes = animes;
-    }
+    ListViewModel listViewModel;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -68,8 +67,7 @@ public class AnimeDetailActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(com.example.malclient.ui.anime.AnimeDetailActivity.this, com.example.malclient.ui.anime.AnimeActivity.class);
-                startActivity(i);
+                animes.add(anime);
                 finish();
             }
         });

@@ -28,7 +28,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.malclient.ui.list.ListViewModel.animes;
+
 public class ListFragment extends Fragment {
+
 
     private ListViewModel listViewModel;
     private Button addBtn;
@@ -41,28 +44,23 @@ public class ListFragment extends Fragment {
             "Type"
     };
     AdapterAnime adapterAnime;
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+    @Override
+    public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
+
+    }
+
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_list, container, false);
         addBtn = root.findViewById(R.id.addBtn);
-        getValue = root.findViewById(R.id.titol);
         animeList = root.findViewById(R.id.listAnime);
 
-        List animes = new ArrayList<Anime>();
         adapterAnime = new AdapterAnime(animes);
         animeList.setAdapter(adapterAnime);
         animeList.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-//        final List< String > ListElementsArrayList = new ArrayList< String >
-//                (Arrays.asList(ListElements));
-//
-//
-//        final ArrayAdapter< String > adapter = new ArrayAdapter < String >
-//                (getContext(), android.R.layout.simple_list_item_1,
-//                        ListElementsArrayList);
-
-//        animeList.setAdapter(adapter);
 
         addBtn.setOnClickListener(v -> {
             Anime anime = new Anime();

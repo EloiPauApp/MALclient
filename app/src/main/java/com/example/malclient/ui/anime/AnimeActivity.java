@@ -37,7 +37,6 @@ public class AnimeActivity extends AppCompatActivity {
         score=findViewById(R.id.score);
         edit_score=findViewById(R.id.edit_score);
         addButton=findViewById(R.id.addAnime);
-        estats=findViewById(R.id.estats);
 
         addButton.setOnClickListener(v -> {
 
